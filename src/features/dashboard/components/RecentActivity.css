@@ -1,0 +1,114 @@
+.recent-activity {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-activity__title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-primary);
+}
+
+.recent-activity__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    overflow-y: auto;
+}
+
+.recent-activity__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.recent-activity__item:hover {
+    background-color: var(--color-bg-tertiary);
+}
+
+.recent-activity__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.recent-activity__icon--critical {
+    background-color: rgba(218, 54, 51, 0.15);
+    color: #f85149;
+}
+
+.recent-activity__icon--high {
+    background-color: rgba(210, 153, 34, 0.15);
+    color: #d29922;
+}
+
+.recent-activity__icon--medium {
+    background-color: rgba(210, 153, 34, 0.15);
+    color: #d29922;
+}
+
+.recent-activity__icon--low {
+    background-color: rgba(35, 134, 54, 0.15);
+    color: #238636;
+}
+
+.recent-activity__icon--info {
+    background-color: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+}
+
+.recent-activity__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.recent-activity__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.recent-activity__alert-title {
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: var(--space-2);
+}
+
+.recent-activity__time {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-mono);
+    flex-shrink: 0;
+}
+
+.recent-activity__meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.recent-activity__dot {
+    color: var(--color-border);
+}

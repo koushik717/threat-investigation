@@ -1,0 +1,70 @@
+.ui-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    white-space: nowrap;
+    font-family: inherit;
+    line-height: 1;
+}
+
+/* Sizes */
+.ui-badge--sm {
+    font-size: 10px;
+    padding: 2px 6px;
+    height: 18px;
+}
+
+.ui-badge--md {
+    font-size: var(--font-size-xs);
+    padding: 3px 8px;
+    height: 22px;
+}
+
+/* Variants */
+.ui-badge--default {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.ui-badge--neutral {
+    background-color: rgba(110, 118, 129, 0.1);
+    /* Gray */
+    color: var(--color-text-secondary);
+    border: 1px solid transparent;
+}
+
+.ui-badge--accent {
+    background-color: rgba(56, 139, 253, 0.1);
+    /* Blue */
+    color: var(--color-accent-primary);
+    border: 1px solid rgba(56, 139, 253, 0.2);
+}
+
+.ui-badge--success {
+    background-color: rgba(45, 164, 78, 0.1);
+    /* Green */
+    color: var(--color-status-low);
+    border: 1px solid rgba(45, 164, 78, 0.2);
+}
+
+.ui-badge--warning {
+    background-color: rgba(210, 153, 34, 0.1);
+    /* Yellow/Orange */
+    color: var(--color-status-medium);
+    border: 1px solid rgba(210, 153, 34, 0.2);
+}
+
+.ui-badge--critical {
+    background-color: rgba(218, 54, 51, 0.1);
+    /* Red */
+    color: var(--color-status-critical);
+    border: 1px solid rgba(218, 54, 51, 0.2);
+}
+
+.ui-badge--info {
+    background-color: rgba(88, 166, 255, 0.1);
+    color: var(--color-status-info);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+}
