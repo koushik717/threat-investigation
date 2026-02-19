@@ -2,6 +2,8 @@
 
 A high-end, next-generation security operations center (SOC) dashboard designed for modern threat hunters and analysts. Built with React, TypeScript, and a custom glassmorphism design system.
 
+[🚀 **Live Demo**](https://koushik717.github.io/threat-investigation/)
+
 
 ## 🚀 Features
 
