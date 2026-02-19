@@ -11,6 +11,9 @@ A high-end, next-generation security operations center (SOC) dashboard designed 
 -   **Investigation Timeline**: Detailed chronological view of security events for in-depth analysis.
 -   **Threat Intelligence**: Dedicated view for tracking global campaigns and threat actors.
 -   **Interactive Visualizations**: Dynamic charts and metric cards with premium hover effects.
+-   **Advanced Data Grid**: High-performance grid with virtualization, filtering, and custom renderers (AG Grid).
+-   **Internationalization (i18n)**: Full localization support with English and Spanish (ready).
+-   **Reliability**: Global Error Boundary to catch and handle runtime crashes gracefully.
 
 ## 🛠️ Tech Stack
 
@@ -38,7 +41,23 @@ A high-end, next-generation security operations center (SOC) dashboard designed 
     npm run dev
     ```
 
-4.  **Build for production**
+4.  **Run Unit Tests** (Vitest)
+    ```bash
+    npm test run
+    ```
+
+5.  **Run End-to-End Tests** (Playwright)
+    ```bash
+    npx playwright install
+    npx playwright test
+    ```
+
+6.  **Lint Code**
+    ```bash
+    npm run lint
+    ```
+
+7.  **Build for production**
     ```bash
     npm run build
     ```

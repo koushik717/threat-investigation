@@ -110,6 +110,16 @@
   padding: 0;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Prevent body scroll if app handles it */
+}
+
 body {
   background-color: var(--color-bg-primary);
   background-image:
@@ -166,4 +176,31 @@ button {
   -webkit-backdrop-filter: var(--backdrop-blur);
   border: var(--glass-border);
   box-shadow: var(--glass-shadow);
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-items-center {
+  align-items: center;
+}
+
+.u-justify-between {
+  justify-content: space-between;
+}
+
+.u-justify-center {
+  justify-content: center;
 }

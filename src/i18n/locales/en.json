@@ -1,0 +1,25 @@
+{
+    "alerts": {
+        "title": "Alerts",
+        "description": "Triage and investigate incoming security alerts.",
+        "searchPlaceholder": "Search alerts ({{count}}+ records)...",
+        "refresh": "Refresh",
+        "export": "Export",
+        "showing": "Showing {{count}} alerts",
+        "loading": "Loading alerts...",
+        "error": "Error loading alerts: {{message}}"
+    },
+    "columns": {
+        "id": "ID",
+        "severity": "Severity",
+        "status": "Status",
+        "title": "Title",
+        "entity": "Entity",
+        "category": "Category",
+        "time": "Time"
+    },
+    "filters": {
+        "severity": "Severity",
+        "status": "Status"
+    }
+}

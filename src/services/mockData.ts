@@ -21,69 +21,36 @@ export const MOCK_ALERTS: Alert[] = [
         source: 'EDR',
         entity: 'WORKSTATION-01',
     },
-    {
-        id: 'ALT-1023',
-        timestamp: '2025-05-15T08:15:22Z',
-        severity: 'high',
-        status: 'investigating',
-        title: 'Impossible Travel Detected',
-        category: 'Credential Access',
-        source: 'Identity Provider',
-        entity: 'jdoe@example.com',
-        assignee: 'Admin User',
-    },
-    {
-        id: 'ALT-1022',
-        timestamp: '2025-05-15T07:45:10Z',
-        severity: 'medium',
-        status: 'new',
-        title: 'Port Scanning Activity',
-        category: 'Reconnaissance',
-        source: 'Firewall',
-        entity: '192.168.1.50',
-    },
-    {
-        id: 'ALT-1021',
-        timestamp: '2025-05-14T23:10:05Z',
-        severity: 'low',
-        status: 'resolved',
-        title: 'Failed Login Attempt',
-        category: 'Credential Access',
-        source: 'Active Directory',
-        entity: 'bsmith',
-        assignee: 'Admin User',
-    },
-    {
-        id: 'ALT-1020',
-        timestamp: '2025-05-14T22:00:00Z',
-        severity: 'info',
-        status: 'false_positive',
-        title: 'Software Update Installed',
-        category: 'Configuration',
-        source: 'System',
-        entity: 'SERVER-DB-02',
-    },
-    {
-        id: 'ALT-1019',
-        timestamp: '2025-05-14T21:45:30Z',
-        severity: 'high',
-        status: 'new',
-        title: 'Ransomware Pattern Match',
-        category: 'Malware',
-        source: 'Anti-Virus',
-        entity: 'FINANCE-PC',
-    },
-    {
-        id: 'ALT-1018',
-        timestamp: '2025-05-14T20:30:15Z',
-        severity: 'medium',
-        status: 'new',
-        title: 'Data Exfiltration via DNS',
-        category: 'Exfiltration',
-        source: 'NDR',
-        entity: '10.0.0.88',
-    },
+    // ... existing static alerts ...
 ];
+
+const SEVERITIES: Alert['severity'][] = ['critical', 'high', 'medium', 'low', 'info'];
+const STATUSES: Alert['status'][] = ['new', 'investigating', 'resolved', 'false_positive'];
+const CATEGORIES = ['Execution', 'Credential Access', 'Reconnaissance', 'Malware', 'Exfiltration', 'Defense Evasion'];
+const SOURCES = ['EDR', 'Firewall', 'Identity Provider', 'Active Directory', 'System', 'NDR'];
+
+export const generateMockAlerts = (count: number): Alert[] => {
+    return Array.from({ length: count }, (_, i) => {
+        const id = `ALT-${10000 + i}`;
+        const severity = SEVERITIES[Math.floor(Math.random() * SEVERITIES.length)];
+        const status = STATUSES[Math.floor(Math.random() * STATUSES.length)];
+        const category = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+        const source = SOURCES[Math.floor(Math.random() * SOURCES.length)];
+
+        return {
+            id,
+            timestamp: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString(),
+            severity,
+            status,
+            title: `${category} detected on ${source}`,
+            category,
+            source,
+            entity: `HOST-${Math.floor(Math.random() * 1000)}`,
+        };
+    });
+};
+
+export const MANY_MOCK_ALERTS = [...MOCK_ALERTS, ...generateMockAlerts(10000)];
 
 export interface TimelineEvent {
     id: string;

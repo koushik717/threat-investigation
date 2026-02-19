@@ -12,7 +12,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ className, label, error, leftIcon, rightIcon, fullWidth = false, id, ...props }, ref) => {
-        const inputId = id || React.useId();
+        const generatedId = React.useId();
+        const inputId = id || generatedId;
 
         return (
             <div className={clsx('ui-input-wrapper', fullWidth && 'ui-input-wrapper--full', className)}>
