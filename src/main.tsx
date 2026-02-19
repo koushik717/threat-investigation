@@ -10,15 +10,25 @@ import { client } from './lib/apollo';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 async function enableMocking() {
+  console.log('[MSW] Initializing...');
   const { worker } = await import('./mocks/browser');
 
-  // Start the worker with the correct service worker URL for GitHub Pages
-  return worker.start({
-    serviceWorker: {
-      url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
-    },
-    onUnhandledRequest: 'bypass',
-  });
+  const swUrl = `${import.meta.env.BASE_URL}mockServiceWorker.js`;
+  console.log('[MSW] Service Worker URL:', swUrl);
+
+  try {
+    const registration = await worker.start({
+      serviceWorker: {
+        url: swUrl,
+      },
+      onUnhandledRequest: 'bypass',
+    });
+    console.log('[MSW] Worker started successfully', registration);
+    return registration;
+  } catch (error) {
+    console.error('[MSW] Error starting worker:', error);
+    throw error;
+  }
 }
 
 enableMocking().then(() => {
