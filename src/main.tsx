@@ -10,11 +10,15 @@ import { client } from './lib/apollo';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 async function enableMocking() {
-  if (!import.meta.env.DEV) {
-    return;
-  }
   const { worker } = await import('./mocks/browser');
-  return worker.start();
+
+  // Start the worker with the correct service worker URL for GitHub Pages
+  return worker.start({
+    serviceWorker: {
+      url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
+    },
+    onUnhandledRequest: 'bypass',
+  });
 }
 
 enableMocking().then(() => {
